@@ -1,0 +1,8 @@
+<div class="divcard">
+  <mat-card *ngFor='let pro of products'>
+    <img mat-card-image  [src]='pro.imagepath'/>
+    <mat-card-title> {{pro.name}}</mat-card-title><br>
+    <mat-card-title> &#x20B9; {{pro.price}}</mat-card-title><br>
+    <button mat-raised-button style="color: rgb(0, 67, 252);" [routerLink]="['/seller/editproduct',pro._id]">Edit Product</button>
+  </mat-card>
+</div>

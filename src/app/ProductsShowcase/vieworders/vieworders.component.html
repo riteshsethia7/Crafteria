@@ -1,0 +1,31 @@
+<div class="card" style="width: 70%;margin: auto; margin-top: 30px;">
+  <table class="table table-striped" style="width: 70%;width: max-content;">
+  <tr>
+    <th scope="col">Order Date</th>
+    <th scope="col">Order Status</th>
+    <th scope="col">Total Amount</th>
+  </tr>
+  <ng-container *ngFor='let ord of orderdetails'>
+  <tr>
+    <td>{{ord.ORDER_DATE}}</td>
+    <td>{{ord.ORDER_STATUS}}</td>
+    <td>{{ord.TXN_AMT}}</td>
+    <td>
+      <button class="btn btn-primary" type="button" (click)='showorderdetails(ord._id)'> View Details</button>
+    </td>
+  </tr>
+  <ng-container *ngIf='isdisplay == ord._id'>
+    <tr>
+      <th>Product Name</th>
+      <th>Product Quantity</th>
+      <th>Total price</th>
+    </tr>
+  <tr *ngFor='let pro of ord.ORDERED_ITEMS'>
+    <td>{{pro.productname}}</td>
+    <td>{{pro.quantity}}</td>
+    <td>{{pro.quantity * pro.productprice}}</td>
+  </tr>
+</ng-container>
+</ng-container>
+</table>
+</div>

@@ -1,0 +1,22 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/user/home/displayproduct']">
+    <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    Crafteria
+  </a>
+  <div class="" >
+  <form class="form-inline mr-auto">
+    <button *ngIf='!userservice.isuserauth'  class="btn btn-success my-2 mr-sm-0 " style="margin-left: 220px;" [matMenuTriggerFor]="menu">Login</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/user/login']" >Buyer Login</button>
+      <button mat-menu-item [routerLink]="['/seller/login']">Seller Login</button>
+    </mat-menu>
+    <button *ngIf='userservice.isuserauth' class="btn btn-success my-2 mr-sm-0 " style="margin-left: 220px;"[matMenuTriggerFor]="profile" >Profile</button>
+    <mat-menu #profile="matMenu">
+      <button mat-menu-item [routerLink]="['/user/home/profile']" >Account</button>
+      <button mat-menu-item [routerLink]='["/user/home/vieworders"]'>Your Orders</button>
+      <button mat-menu-item (click)='onlogout()'>Logout</button>
+    </mat-menu>
+    <button class="btn btn-success my-2 my-sm-0 " style="margin-left: 30px;width: 100px;" [routerLink]='["/user/home/cart"]'>Cart</button>
+  </form>
+</div>
+</nav>

@@ -1,0 +1,19 @@
+<div class="divcard">
+  <h1 class="display-2"> Total Earnings : {{total}} <button class="btn btn-success">Withdraw</button></h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Date</th>
+      <th>Image</th>
+      <th>Product Name</th>
+      <th>Quantities Sold</th>
+      <th>Total Earnings</th>
+    </tr>
+    <tr *ngFor='let pro of productssold'>
+      <td>{{pro.datepurchased}}</td>
+      <td><img width="100px" height="70px" [src]='pro.product[0].imagepath' /></td>
+      <td>{{pro.product[0].name}}</td>
+      <td>{{pro.quantity}}</td>
+      <td>{{pro.revenue}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,44 @@
+#mySidenav a {
+  position: absolute;
+  transition: 0.3s;
+  padding: 15px;
+  width: 180px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+#mySidenav a:active {
+  transform: translateY(4px);
+  outline: 2px;
+}
+
+#mySidenav a:hover {
+  left: 0;
+}
+
+#addproduct {
+  top: 20px;
+  background-color: #4CAF50;
+}
+
+#modify {
+  top: 80px;
+  background-color: #2196F3;
+}
+
+#earnings {
+  top: 140px;
+  background-color: #f44336;
+}
+
+#profile {
+  top: 200px;
+  background-color: #555
+}
+
+#logout {
+  top: 260px;
+  background-color: rgb(255, 103, 154);
+}

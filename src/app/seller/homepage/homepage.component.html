@@ -1,0 +1,19 @@
+<div id="mySidenav" class="sidenav">
+  <a [routerLink]="['/seller/addproduct']" id="addproduct">Add Product</a>
+  <a [routerLink]="['/seller/modifyproduct']" id="modify">All Products</a>
+  <a [routerLink]="['/seller/earnings']" id="earnings">Earnings</a>
+  <a [routerLink]="['/seller/profile']" id="profile">Profile</a>
+  <a (click)='onlogout()' id="logout">Logout</a>
+</div>
+<div style="margin-left: 210px;margin-top: 20px;">
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+      Crafteria
+    </a>
+    <a class=" btn btn-primary" [routerLink]='["/seller"]'>Home</a>
+  </nav>
+</div>
+<div style="margin-left:20px;margin-top: 50px;">
+<router-outlet ></router-outlet>
+</div>

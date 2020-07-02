@@ -1,0 +1,13 @@
+mat-card{
+  width: 16rem;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.divcard{
+  padding-left: 210px;
+}
+mat-card img {
+  height: 12rem;
+  width: 16rem;
+}

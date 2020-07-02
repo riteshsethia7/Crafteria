@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" [routerLink]="['/user/home/displayproduct']">
+    <img src="favicon.ico" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    Crafteria
+  </a>
+  <div class="" >
+  <form class="form-inline mr-auto">
+    <button class="btn btn-success my-2 my-sm-0 " style="margin-left: 30px;width: 100px;" [routerLink]='["/user/home/cart"]'>Cart</button>
+  </form>
+</div>
+</nav>
+<div style="margin-left: 100px;margin-top:30px;width:500px;float: left;">
+  <h1 class="h1">Shipping Address</h1>
+  <ng-container *ngIf='address.length > 0; else elseblock'>
+    <div class="card" style="width: max-content;padding-left: 20px;padding-top: 20px;padding-right: 20px;">
+      <h2 class="h2">{{address[0].fullname}}</h2>
+      <p>{{address[0].phoneno}}</p>
+      <p>{{address[0].line1}}</p>
+      <p>{{address[0].line2}}</p>
+      <p>{{address[0].landmark}}</p>
+      <p>{{address[0].city}}, &nbsp;{{address[0].state}}</p>
+      <p></p>
+    </div>
+  </ng-container>
+  <ng-template #elseblock> <button class="btn btn-primary" [routerLink]='["/user/home/address"]'>Add Address</button></ng-template>
+</div>
+<div style="width: 400px;float: left;margin-top: 30px;">
+  <h1 class="h1">Total Amount : {{total}}</h1>
+  <a class ='btn-primary btn'  [href]="'http://localhost:8080'" appExternalUrl >pay</a>
+</div>

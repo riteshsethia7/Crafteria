@@ -1,0 +1,9 @@
+<div class="divcard">
+  <mat-card *ngFor='let pro of products'>
+    <img mat-card-image  [src]='pro.imagepath'/>
+    <mat-card-title style="margin-bottom: 20px;"> {{pro.name}}</mat-card-title>
+    <mat-card-title> &#x20B9; {{pro.price}}</mat-card-title><br>
+    <button mat-raised-button style="color: rgb(0, 67, 252);" [routerLink]='["/user/home/productdetails/",pro._id]' >View Product</button>
+
+  </mat-card>
+</div>

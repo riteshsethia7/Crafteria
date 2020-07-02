@@ -1,0 +1,17 @@
+<nav class="bg-light">
+    <div class="dropdown"  *ngFor='let cat of Category'>
+      <button class="dropbtn" [routerLink]="['/user/home/displayproduct',cat.name,sortlogic]" (click)='updatecatdata(cat.name)'>{{cat.name}}</button>
+      <div class="dropdown-content">
+      <a [routerLink]="['/user/home/displayproduct',cat.name,subcat,sortlogic]" *ngFor='let subcat of cat.subcat' (click)='updatedata(subcat,cat.name)'>{{subcat}}</a>
+      </div>
+    </div>
+    <div style="float: right;padding-right: 80px;">
+    <div class="dropdown" >
+      <button class="dropbtn">Sort By</button>
+      <div class="dropdown-content">
+        <a *ngFor='let logic of Sorting' [routerLink]="['/user/home/displayproduct',service.sortcat,service.sortsubcat,logic.value]"> {{logic.name}}</a>
+
+      </div>
+    </div>
+  </div>
+</nav>

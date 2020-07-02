@@ -1,0 +1,25 @@
+<table >
+  <tr>
+    <td class="product-image">
+      <img [src]='product.imagepath' alt="Unable to fetch Image " class="rounded" >
+    </td>
+    <td  class="detail-card" rowspan="2">
+      <mat-card-title style="font-size:33px;margin-top: 10px;">{{product.name}} </mat-card-title>
+      <p >Ratings : {{product.rating}}</p>
+      <hr >
+      <mat-card-title>Price :&nbsp; &#8377; &nbsp;{{product.price}}</mat-card-title>
+      <p class="text-success font-weight-normal h5" *ngIf='product.quantity>0'>In Stock</p>
+      <p class="text-danger " *ngIf='product.quantity===0'>Out of Stock</p>
+      <hr>
+      <mat-card-subtitle>Product Description :</mat-card-subtitle><br>
+      <mat-card-content>{{product.Productdescription}}</mat-card-content>
+      <hr>
+      <mat-card-subtitle>Product Specifications :</mat-card-subtitle><br>
+      <mat-card-content>{{product.productspecifications}}</mat-card-content>
+    </td>
+    <td class="button-box">
+      <h4 class="h4">Qty. <input type="number" value = "1" min="1" max="10" step="1" ngModel #qty="ngModel" name="quantity" onkeydown="return false"/></h4><br>
+      <button class="btn btn-primary" (click)='addtocart(product._id,qty,product.qty,product.name,product.price)'>Add to cart</button>
+    </td>
+  </tr>
+</table>

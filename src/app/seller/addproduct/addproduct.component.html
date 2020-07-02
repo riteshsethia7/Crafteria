@@ -1,0 +1,89 @@
+<div style="margin-top: 30px;">
+  <mat-card>
+    <mat-card-title>Enter Product Details</mat-card-title>
+    <form [formGroup]="form" (submit)="onaddproduct()" >
+      <mat-label>Name</mat-label>
+      <mat-form-field>
+        <input
+          matInput
+          type="text"
+          placeholder="Enter name of the product"
+          formControlName='name'
+        />
+        <mat-error *ngIf="form.get('name').invalid">Enter a product name</mat-error>
+      </mat-form-field>
+      <mat-label>Category</mat-label>
+      <mat-form-field>
+        <mat-label>Choose a category</mat-label>
+        <mat-select (selectionChange)="changesubcat($event.value)" formControlName='category'>
+          <mat-option *ngFor="let cat of Category" [value]="cat.name" >
+            {{ cat.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-label>Sub - Category</mat-label>
+      <mat-form-field>
+        <mat-label>Choose a sub - category</mat-label>
+        <mat-select  formControlName='subcategory'>
+          <mat-option *ngFor="let subc of Subcat" value="{{subc}}" >
+            {{ subc }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-label>Price</mat-label>
+      <mat-form-field>
+        <span matPrefix>&#8377; &nbsp;</span>
+        <input
+          matInput
+          type="number"
+          placeholder="Enter Price of the product"
+          formControlName='price'
+        />
+        <mat-error *ngIf="form.get('price').invalid">Enter Price</mat-error>
+      </mat-form-field>
+      <mat-label>Quantity</mat-label>
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          placeholder="Enter Quantity"
+          formControlName='quantity'
+        />
+        <mat-error *ngIf="form.get('quantity').invalid"
+          >Enter a Quantity</mat-error
+        >
+      </mat-form-field>
+      <mat-label>Product Description</mat-label>
+      <mat-form-field>
+        <textarea
+          rows="3"
+          matInput
+          type="text"
+          placeholder="Describe your product"
+          formControlName='productdescription'
+
+        ></textarea>
+        <mat-error *ngIf="form.get('productdescription').invalid">Enter product specifiactions</mat-error>
+      </mat-form-field>
+      <mat-label>Product Specifications</mat-label>
+      <mat-form-field>
+        <textarea
+          rows="3"
+          matInput
+          formControlName='productspecifications'
+          type="text"
+          placeholder="Enter product specifications"
+        ></textarea>
+        <mat-error *ngIf="form.get('productspecifications').invalid">Enter product specifications</mat-error>
+      </mat-form-field>
+      <mat-label>Select An Image</mat-label><br>
+      <div>
+        <button class="btn btn-primary" type="button" (click)='imagepicker.click()'>Pick Image</button>
+        <input type="file" style="visibility: hidden;" #imagepicker  (change)="onimageselected($event)" />
+      </div>
+      <div class="preview" *ngIf="imagepreview && form.get('image').valid"><img [src]="imagepreview" [alt]='form.value.image'></div>
+      <mat-error *ngIf="!form.get('image').valid"></mat-error>
+      <button class="btn btn-success"  style="margin-top: 15px;" type="submit">Upload Product</button>
+    </form>
+  </mat-card>
+</div>

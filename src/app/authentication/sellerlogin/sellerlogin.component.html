@@ -1,0 +1,17 @@
+<div style="margin-top: 30px;">
+<mat-card>
+  <mat-card-title>Seller Login</mat-card-title>
+  <form (submit)="onLogin(loginform)" #loginform="ngForm">
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="Enter your E-mail" #emailinput="ngModel" required email>
+      <mat-error *ngIf="emailinput.invalid">Enter a valid email</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput name="password" ngModel type="password" placeholder="Enter your Password" #passinput="ngModel" required >
+      <mat-error *ngIf="passinput.invalid">Enter a valid password</mat-error>
+    </mat-form-field>
+    <a [routerLink]='["/seller/register"]'>Not a member ? Click here to Register</a>
+    <button mat-raised-button type="submit">Login</button>
+  </form>
+</mat-card>
+</div>

@@ -1,0 +1,52 @@
+<div style="margin-top: 30px;">
+  <mat-card>
+    <mat-card-title >Address Form</mat-card-title>
+    <form (submit)="onsaveaddress(addressform)" #addressform="ngForm">
+      <mat-label >Full Name</mat-label>
+      <mat-form-field>
+        <input matInput name="fullname" ngModel type="text" placeholder="Full Name" #fullname="ngModel" required >
+        <mat-error *ngIf="fullname.invalid">Enter a full name</mat-error>
+      </mat-form-field>
+      <mat-label >Phone Number</mat-label>
+      <mat-form-field>
+        <input matInput name="phoneno" ngModel type="text" placeholder="Enter your Phone Number" #emailinput="ngModel" required >
+        <mat-error *ngIf="emailinput.invalid">Enter a valid email</mat-error>
+      </mat-form-field>
+      <mat-label>Address Line 1</mat-label>
+      <mat-form-field>
+        <input matInput name="line1" ngModel type="text" placeholder="Flat, House no., Building, Company, Apartment" #passinput="ngModel" required >
+        <mat-error *ngIf="passinput.invalid">Enter Address</mat-error>
+      </mat-form-field>
+      <mat-label>Address Line 2</mat-label>
+      <mat-form-field>
+        <input matInput name="line2" ngModel type="text" placeholder="Area, Colony, Street, Sector, Village
+        " #copassinput="ngModel" required >
+        <mat-error *ngIf="passinput!==copassinput">Enter address</mat-error>
+      </mat-form-field>
+      <mat-label>Landmark</mat-label>
+      <mat-form-field>
+        <input matInput name="landmark" ngModel type="text" placeholder="Eg. Near AIIMS Flyover
+        " #copassinput="ngModel" >
+      </mat-form-field>
+      <mat-label>City</mat-label>
+      <mat-form-field>
+        <input matInput name="city" ngModel type="text" placeholder="enter city name
+        " #copassinput="ngModel">
+      </mat-form-field>
+      <mat-label>State</mat-label>
+      <mat-form-field>
+        <mat-select  name='state' ngModel aria-placeholder="choose a option">
+          <mat-option *ngFor="let subc of states" value="{{subc}}" >
+            {{ subc }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-label>Pin Code</mat-label>
+      <mat-form-field>
+        <input matInput name="zip" ngModel type="text" placeholder="Enter Pincode/zipcode">
+      </mat-form-field>
+  <br><br>
+      <button mat-raised-button type="submit">Save Address</button>
+    </form>
+  </mat-card>
+  </div>

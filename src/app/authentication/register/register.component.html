@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div style="margin-top: 30px;">
+<mat-card>
+  <mat-card-title >User Registration</mat-card-title>
+  <form (submit)="onRegister(registerform)" #registerform="ngForm">
+    <mat-label >Full Name</mat-label>
+    <mat-form-field>
+      <input matInput name="fname" ngModel type="text" placeholder="Full Name" #fullname="ngModel" required >
+      <mat-error *ngIf="fullname.invalid">Enter a first name</mat-error>
+    </mat-form-field>
+    <mat-label >E-mail</mat-label>
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="Enter your E-mail" #emailinput="ngModel" required email>
+      <mat-error *ngIf="emailinput.invalid">Enter a valid email</mat-error>
+    </mat-form-field>
+    <mat-label>Password</mat-label>
+    <mat-form-field>
+      <input matInput name="password" ngModel type="password" placeholder="Enter your Password" #passinput="ngModel" required >
+      <mat-error *ngIf="passinput.invalid">Enter a valid password</mat-error>
+    </mat-form-field>
+    <mat-label>Confirm Password</mat-label>
+    <mat-form-field>
+      <input matInput name="confirmpassword" ngModel type="password" placeholder="Re-enter your Password" #copassinput="ngModel" required >
+      <mat-error *ngIf="passinput!==copassinput">Password doesn't Match</mat-error>
+    </mat-form-field>
+    <a [routerLink]='["/user/login"]'>Already a member ? Click here to Sign in</a>
+<br><br>
+    <button mat-raised-button type="submit">Register</button>
+  </form>
+</mat-card>
+</div>

@@ -1,0 +1,90 @@
+<div class="text-center" style="height: max-content;">
+  <h1 class="shopping">Shopping Cart</h1>
+</div>
+<div class="container mb-4" *ngIf="userservice.isuserauth && cartitems.length > 0 ; else elseblock ">
+  <div class="row">
+    <div class="col-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Product</th>
+              <th scope="col">Available</th>
+              <th scope="col" >Quantity</th>
+              <th scope="col" >Price</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pro of cartitems">
+              <td><img [src]="pro.imagepath" /></td>
+              <td class="h4">{{ pro.productname }} </td>
+              <td class="text-success h4">In stock</td>
+              <td class="align-items-center"><div class="input-group align-items-center">
+                <p class="h5">Qty: {{pro.quantity}} &nbsp;</p>
+                <input
+                  class="form-control col-md-4"
+                  type="number"
+                  ngModel #qty="ngModel"
+                  min="1"
+                  value="1"
+                  max="10"
+                  value="{{pro.quantity}}" onkeydown="return false"
+                /><div class="input-group-append"><button class="btn btn-primary btn-sm" (click)='addtocart(pro.productid,qty,pro.productqty,pro.productname,pro.productprice)'>
+                  <i class="material-icons">create</i></button></div></div>
+              </td>
+              <td class="text-left h5">
+                {{ pro.productprice }}&nbsp; &#8377;
+              </td>
+              <td class="text-right">
+                <button class="btn btn-danger btn-sm" (click)='deletefromcart(pro.productid)'>
+                  <i class="material-icons">delete</i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="text-right h4">Total</td>
+              <td class="text-right h4">{{ total }}&nbsp; &#8377;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col mb-2">
+      <div class="row">
+        <div class="col-sm-12 col-md-6">
+          <button
+            class="btn btn-block btn-primary"
+            [routerLink]="['/user/home/displayproduct']"
+          >
+            Continue Shopping
+          </button>
+        </div>
+        <div class="col-sm-12 col-md-6 text-right">
+          <button class="btn btn-block btn-success text-uppercase"
+          [routerLink]="['/user/checkout']">
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #elseblock>
+  <div class="text-center h5">
+    Oh no Your cart is empty<i class="material-icons">sentiment_very_dissatisfied</i>
+  </div>
+  <div class="text-center">
+        <button
+          class="btn btn-lg btn-primary"
+          [routerLink]="['/user/home/displayproduct']"
+        >
+          Continue Shopping
+        </button>
+  </div>
+</ng-template>

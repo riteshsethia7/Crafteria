@@ -1,0 +1,30 @@
+
+<div class="card" style="width: 70%;margin: auto; margin-top: 30px;">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th scope="col"> Full Name :</th>
+        <td scope="col"> {{userdata[0].name}}</td>
+      </tr>
+      <tr>
+        <th scope="col"> E-mail   :</th>
+        <td scope="col"> {{userdata[0].email}}</td>
+      </tr>
+      <tr>
+        <th scope="col">Address :</th>
+        <td scope='col'*ngIf='address.length ==0'><button [routerLink]='["/user/home/address"]'>Add Address</button></td>
+        <td *ngIf='address.length > 0'>
+          <div>
+            <h4>{{address[0].fullname}}</h4>
+            <p>{{address[0].phoneno}}</p>
+            <p>{{address[0].line1}}</p>
+            <p>{{address[0].line2}}</p>
+            <p>{{address[0].landmark}}</p>
+            <p>{{address[0].city}}, &nbsp;{{address[0].state}}</p>
+            <p></p>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
